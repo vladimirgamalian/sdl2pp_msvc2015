@@ -24,7 +24,7 @@ after_build:
   - 7z a sdl2ppd.zip -i@"debug.txt"
   - dir
   - dir extlibs\libSDL2pp
-  - dir Win32\Debug
+  - dir extlibs\libSDL2pp\Debug
 
 artifacts:
   - path: sdl2pp.zip
