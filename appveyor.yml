@@ -21,3 +21,13 @@ before_build:
   
 build:
   project: sdl2pp_msvc2015.sln
+
+after_build:
+  - 7z a sdl2pp.zip -i@"release.txt"
+  - 7z a sdl2ppd.zip -i@"debug.txt"
+
+artifacts:
+  - path: sdl2pp.zip
+    name: sdl2pp
+  - path: sdl2ppd.zip
+    name: sdl2ppd
