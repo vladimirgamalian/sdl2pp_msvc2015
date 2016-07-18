@@ -1,0 +1,3 @@
+.\extlibs\libSDL2pp\Release\*.*
+include\SDL2pp\*.*
+include\SDL2pp\external\libcpp_optional.hh

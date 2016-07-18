@@ -13,8 +13,9 @@ before_build:
   - git submodule init && git submodule update
   - cmake -G "Visual Studio 14 2015" -DCMAKE_PREFIX_PATH="C:\Libraries"
 
-build:
-  project: sdl2pp_msvc2015.sln
+build_script:
+  - msbuild "sdl2pp_msvc2015.sln" /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration=Debug /p:Platform=x86
+  - msbuild "sdl2pp_msvc2015.sln" /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration=Release /p:Platform=x86  
 
 after_build:
   - md include
@@ -23,10 +24,13 @@ after_build:
   - copy extlibs\libSDL2pp\SDL2pp\*.hh include\SDL2pp
   - copy extlibs\libSDL2pp\SDL2pp\external\libcpp_optional.hh include\SDL2pp\external\libcpp_optional.hh
   - 7z a sdl2ppd.zip -i@"debug.txt"
+  - 7z a sdl2ppd.zip -i@"release.txt"
 
 artifacts:
   - path: sdl2ppd.zip
     name: sdl2ppd
+  - path: sdl2pp.zip
+    name: sdl2pp	
 
 deploy:
   provider: GitHub
@@ -34,7 +38,7 @@ deploy:
   description: 'Precompiled libSDL2pp mvsc2015 binaries'
   auth_token:
     secure: FLLAgKct3M0RM2UAGxPMC3CazyD4SyNVh4X3gdB8T1PHYtTvXJOYqG4D+6R9iKop
-  artifact: sdl2ppd
+  artifact: sdl2pp, sdl2ppd
   draft: false
   prerelease: false
   on:
