@@ -14,8 +14,8 @@ before_build:
   - cmake -G "Visual Studio 14 2015" -DCMAKE_PREFIX_PATH="C:\Libraries"
 
 build_script:
-  - msbuild "sdl2pp_msvc2015.sln" /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration=Debug /p:Platform=x86
-  - msbuild "sdl2pp_msvc2015.sln" /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration=Release /p:Platform=x86  
+  - msbuild "sdl2pp_msvc2015.sln" /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration=Debug /p:Platform=Win32
+  - msbuild "sdl2pp_msvc2015.sln" /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /p:Configuration=Release /p:Platform=Win32
 
 after_build:
   - md include
