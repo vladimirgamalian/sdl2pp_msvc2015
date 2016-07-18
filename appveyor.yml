@@ -24,7 +24,7 @@ after_build:
   - copy extlibs\libSDL2pp\SDL2pp\*.hh include\SDL2pp
   - copy extlibs\libSDL2pp\SDL2pp\external\libcpp_optional.hh include\SDL2pp\external\libcpp_optional.hh
   - 7z a sdl2ppd.zip -i@"debug.txt"
-  - 7z a sdl2ppd.zip -i@"release.txt"
+  - 7z a sdl2pp.zip -i@"release.txt"
 
 artifacts:
   - path: sdl2ppd.zip
