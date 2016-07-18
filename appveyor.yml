@@ -19,6 +19,7 @@ build:
 after_build:
   - md include
   - md include\SDL2pp
+  - md include\SDL2pp\external
   - copy extlibs\libSDL2pp\SDL2pp\*.hh include\SDL2pp
   - copy extlibs\libSDL2pp\SDL2pp\external\libcpp_optional.hh include\SDL2pp\external\libcpp_optional.hh
   - 7z a sdl2ppd.zip -i@"debug.txt"
