@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 2.8)
 project(sdl2pp_msvc2015)
 
+SET(SDL2PP_WITH_IMAGE ON)
+SET(SDL2PP_WITH_MIXER ON)
+SET(SDL2PP_WITH_TTF ON)
 add_subdirectory(extlibs/libSDL2pp)
 include_directories(SYSTEM ${SDL2PP_INCLUDE_DIRS})
 
