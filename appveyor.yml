@@ -19,9 +19,21 @@ build:
 after_build:
   - md include
   - md include\SDL2pp
-  - copy extlibs\libSDL2pp\SDL2pp\*.* include\SDL2pp
+  - copy extlibs\libSDL2pp\SDL2pp\*.hh include\SDL2pp
   - 7z a sdl2ppd.zip -i@"debug.txt"
 
 artifacts:
   - path: sdl2ppd.zip
     name: sdl2ppd
+
+deploy:
+  provider: GitHub
+  release: libSDL2pp-Binaries
+  description: 'Precompiled libSDL2pp mvsc2015 binaries'
+  auth_token:
+    secure: FLLAgKct3M0RM2UAGxPMC3CazyD4SyNVh4X3gdB8T1PHYtTvXJOYqG4D+6R9iKop
+  artifact: sdl2ppd
+  draft: false
+  prerelease: false
+  on:
+    branch: master
