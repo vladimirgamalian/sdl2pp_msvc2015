@@ -13,11 +13,11 @@ before_build:
   - appveyor DownloadFile https://github.com/vladimirgamalian/sdl2_msvc_builds/releases/download/SDL2-Binaries/sdl2.zip
   - 7z x sdl2.zip -oC:\Libraries > nul
   # create VS solution
-  - dir c:\
-  - dir c:\projects
-  #- cd C:\projects\sdl2pp_msvc2015
   - git submodule init && git submodule update
   - cmake -G "Visual Studio 14 2015" -DCMAKE_PREFIX_PATH="C:\Libraries"
-
+  - dir
+  - dir Debug
+  - dir Release
+  
 build:
   project: sdl2pp_msvc2015.sln
