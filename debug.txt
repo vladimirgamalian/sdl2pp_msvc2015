@@ -1,0 +1,2 @@
+.\extlibs\libSDL2pp\Debug\*.*
+include\SDL2pp\*.*

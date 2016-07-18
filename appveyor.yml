@@ -3,7 +3,6 @@ os:
 
 configuration:
   - Debug
-  - Release
 
 platform:
   - Win32
@@ -18,11 +17,11 @@ build:
   project: sdl2pp_msvc2015.sln
 
 after_build:
-  - 7z a sdl2ppd.zip extlibs\libSDL2pp\Debug\*.*
-  - 7z a sdl2pp.zip extlibs\libSDL2pp\Release\*.*
+  - md include
+  - md include\SDL2pp
+  - copy extlibs\libSDL2pp\SDL2pp\*.* include\SDL2pp
+  - 7z a sdl2ppd.zip -i@"debug.txt"
 
 artifacts:
-  - path: sdl2pp.zip
-    name: sdl2pp
   - path: sdl2ppd.zip
     name: sdl2ppd
