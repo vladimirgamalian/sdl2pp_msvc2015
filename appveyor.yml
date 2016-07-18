@@ -9,10 +9,8 @@ platform:
   - Win32
 
 before_build:
-  # download and unzip precompiled SDL2 libraries
   - appveyor DownloadFile https://github.com/vladimirgamalian/sdl2_msvc_builds/releases/download/SDL2-Binaries/sdl2.zip
   - 7z x sdl2.zip -oC:\Libraries > nul
-  # create VS solution
   - git submodule init && git submodule update
   - cmake -G "Visual Studio 14 2015" -DCMAKE_PREFIX_PATH="C:\Libraries"
   
@@ -20,11 +18,8 @@ build:
   project: sdl2pp_msvc2015.sln
 
 after_build:
-  - 7z a sdl2pp.zip -i@"release.txt"
-  - 7z a sdl2ppd.zip -i@"debug.txt"
-  - dir
-  - dir extlibs\libSDL2pp
-  - dir extlibs\libSDL2pp\Debug
+  - 7z a sdl2ppd.zip extlibs\libSDL2pp\Debug
+  - 7z a sdl2pp.zip extlibs\libSDL2pp\Release
 
 artifacts:
   - path: sdl2pp.zip
