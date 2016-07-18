@@ -23,8 +23,8 @@ after_build:
   - 7z a sdl2pp.zip -i@"release.txt"
   - 7z a sdl2ppd.zip -i@"debug.txt"
   - dir
-  - dir Debug
-  - dir Release  
+  - dir extlibs
+  - dir Win32  
 
 artifacts:
   - path: sdl2pp.zip
