@@ -34,7 +34,7 @@ artifacts:
 
 deploy:
   provider: GitHub
-  release: libSDL2pp-Binaries
+  release: libSDL2pp-bin
   description: 'Precompiled libSDL2pp mvsc2015 binaries'
   auth_token:
     secure: FLLAgKct3M0RM2UAGxPMC3CazyD4SyNVh4X3gdB8T1PHYtTvXJOYqG4D+6R9iKop
